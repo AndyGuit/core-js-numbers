@@ -468,7 +468,7 @@ function isNumber(number) {
  * '5'  => false
  */
 function isInteger(number) {
-  return typeof number === 'number' && number % parseInt(number) === 0;
+  return typeof number === 'number' && number % parseInt(number, 10) === 0;
 }
 
 /**
