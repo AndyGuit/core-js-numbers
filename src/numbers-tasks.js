@@ -677,10 +677,16 @@ function getHypotenuse(a, b) {
  * 15 => 8
  */
 function getCountOfOddNumbers(number) {
-  let count = 1;
+  let count = 0;
 
-  for (let i = 2; i <= number; i += 1) {
-    if (i % 2 !== 0) count += 1;
+  if (number > 0) {
+    for (let i = 0; i <= number; i += 1) {
+      if (i % 2 !== 0) count += 1;
+    }
+  } else {
+    for (let i = 0; i >= number; i -= 1) {
+      if (i % 2 !== 0) count += 1;
+    }
   }
 
   return count;
