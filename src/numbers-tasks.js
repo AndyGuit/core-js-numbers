@@ -137,8 +137,7 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     0     => 0
  */
 function getLastDigit(value) {
-  const numString = `${value}`;
-  return +numString[numString.length - 1];
+  return value % 10;
 }
 
 /**
@@ -478,7 +477,7 @@ function isNumber(number) {
  * '5'  => false
  */
 function isInteger(number) {
-  return typeof number === 'number' && number % parseInt(number, 10) === 0;
+  return Number.isInteger(number);
 }
 
 /**
@@ -492,21 +491,7 @@ function isInteger(number) {
  * 'abcdefgh'      => NaN
  */
 function getFloatOnString(str) {
-  if (Number.isNaN(+str[0])) return NaN;
-
-  const result = [];
-
-  for (let i = 0; i < str.length; i += 1) {
-    if (str[i] === '.' || !Number.isNaN(+str[i])) {
-      result.push(str[i]);
-    } else {
-      break;
-    }
-  }
-
-  const resultNum = +result.join('');
-
-  return resultNum;
+  return Number.parseFloat(str);
 }
 
 /**
@@ -524,7 +509,7 @@ function getFloatOnString(str) {
  * '10', 8              => 8
  */
 function getIntegerOnString(str, base) {
-  return parseInt(str, base);
+  return Number.parseInt(str, base);
 }
 
 /**
@@ -629,7 +614,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  return firstNumber > secondNumber ? firstNumber : secondNumber;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
