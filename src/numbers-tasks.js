@@ -443,7 +443,7 @@ function toPrecision(number, precision) {
  * Number(-5)    => -5
  */
 function getNumberValue(number) {
-  return +number;
+  return number.valueOf();
 }
 
 /**
@@ -462,8 +462,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  if (Number.isNaN(number) || number === Infinity) return false;
-
+  if (!Number.isFinite(number)) return false;
   return typeof number === 'number';
 }
 
